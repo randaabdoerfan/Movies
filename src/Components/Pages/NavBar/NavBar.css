@@ -1,0 +1,8 @@
+.link{
+  transition: 0.3s;
+}
+.link:hover{
+  transform: scale(1.05);
+  border-bottom: 1px rgb(65, 177, 210) solid ;
+  color: rgb(51, 169, 220) !important;
+}
