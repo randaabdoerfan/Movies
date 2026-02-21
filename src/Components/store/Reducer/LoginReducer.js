@@ -1,5 +1,7 @@
-const inital ={isLogin:false}
-export default function LoginReducer(state=inital,action){
+const initial ={
+    isLogin: localStorage.getItem("isLoggedIn") === "true" ? true : false
+}
+export default function LoginReducer(state=initial,action){
     switch(action.type){
         case"set_login":
         return{

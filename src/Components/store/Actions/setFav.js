@@ -1,8 +1,8 @@
-import React from 'react'
 
-export default function setFav(data){
+
+export default function setFav(movie){
   return {
-    type:"set_fav",
-    payload:data
+    type:"TOGGLE_FAV",
+    payload:movie
   }
 }

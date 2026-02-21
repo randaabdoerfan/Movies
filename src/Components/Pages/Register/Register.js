@@ -3,17 +3,30 @@ import { Card, Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
+
 
 function Register() {
+  const [formData , setFormData] = useState({
+    fname :"",
+    email:"",
+    password:"",
+    
+  })
   const [validated, setValidated] = useState(false);
+  const navigate = useNavigate()
+
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
+    
+    } else {
+      localStorage.setItem("userData", JSON.stringify(formData));
+      alert("Registered Successfully!");
+      navigate('/login')
     }
-
     setValidated(true);
   };
 
@@ -28,14 +41,16 @@ function Register() {
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             
             <Form.Group className="mb-3" controlId="validationCustom01">
-              <Form.Label>First name</Form.Label>
+              <Form.Label>Name</Form.Label>
               <Form.Control
                 required
                 type="text"
                 placeholder="First name"
+                value={formData.fname}
+                onChange={(e)=>{setFormData({...formData,fname:e.target.value})}}
               />
               <Form.Control.Feedback type="invalid">
-                Please enter your first name.
+                Please enter your name.
               </Form.Control.Feedback>
             </Form.Group>
 
@@ -45,6 +60,8 @@ function Register() {
                 required
                 type="email"
                 placeholder="name@example.com"
+                value={formData.email}
+                onChange={(e)=>{setFormData({...formData,email:e.target.value})}}
               />
               <Form.Control.Feedback type="invalid">
                 Please enter a valid email.
@@ -57,6 +74,8 @@ function Register() {
                 required
                 type="password"
                 placeholder="Password"
+                 value={formData.password || ""}
+                onChange={(e)=>{setFormData({...formData,password:e.target.value})}}
               />
               <Form.Control.Feedback type="invalid">
                 Please enter a password.

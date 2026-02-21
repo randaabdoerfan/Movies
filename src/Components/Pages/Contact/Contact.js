@@ -1,11 +1,15 @@
-import React from 'react'
+
 import { Container } from 'react-bootstrap'
 import { motion } from "framer-motion";
 import { Card } from "react-bootstrap";
 import './Contact.css';
+import { useSelector } from 'react-redux';
+
 function Contact() {
 
-  let mode = localStorage.getItem("mode")
+const mode = useSelector((state)=>{return state.mode.mode})
+console.log(mode)
+
   return (
 
     <Container className={`h-100 pb-4 d-flex justify-content-center align-items-center pb-5 border-bottom`}>
@@ -20,7 +24,11 @@ function Contact() {
           className="mb-12 ml-6"
         >
           <Card className="contant rounded-1xl shadow-md hover:shadow-lg transition-all w-75 duration-300 mx-auto">
-            <Card.Body className={`p-4 ${mode === "dark" ? "bg-dark text-white" : "bg-light text-black"}`}>
+            <Card.Body className=
+            {`p-4 
+              ${mode === "dark" ? "bg-dark text-white" : "bg-light text-black"}
+              `}
+            >
 
               <div className="d-flex flex-column gap-3">
 

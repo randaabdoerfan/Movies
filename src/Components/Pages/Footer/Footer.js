@@ -1,14 +1,9 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
-export default function Footer (){
-let mode = localStorage.getItem("mode")
-    return(
-
-        <footer
-      className={`py-4 mt-5 ${
-        mode === "dark" ? "bg-dark text -white" : "bg-light text-dark"
-      }`}   >
+export default function Footer() {
+  return (
+    <footer>
       <Container className="text-center">
         <div className="mb-3 d-flex justify-content-center gap-4">
           <span
@@ -49,7 +44,7 @@ let mode = localStorage.getItem("mode")
 
       </Container>
     </footer>
-  
- 
-    )
+
+
+  )
 }
