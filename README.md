@@ -30,7 +30,6 @@ A modern Movie Web Application built using **React** and **Redux Toolkit** that 
 
 ---
 
-## 📂 Project Structure
 ## 🔄 Application Flow
 
 1. User registers an account.
@@ -55,5 +54,6 @@ git clone https://github.com/your-randaabdoerfan/Movies.git
 http://localhost:3000
 
 ### Deployment
+https://movies-two-livid.vercel.app/
 
 
